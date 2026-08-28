@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- Embed-Seite nicht indexieren (reines Widget-Fragment ohne eigenen Kontext). -->
+    <meta name="robots" content="noindex, nofollow" />
+    <!--
+      Lockere CSP für das einbettbare Widget: darf von beliebigen Seiten
+      per iframe geladen werden (frame-ancestors *). Keine 'self'-Only-
+      Einschränkung der Eltern-Origin, da das Widget ausdrücklich zum
+      Einbetten gedacht ist. Skripte/Styles weiterhin restriktiv.
+    -->
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; img-src 'self' data: https://tile.openstreetmap.org https://*.tile.openstreetmap.org https://*.basemaps.cartocdn.com; style-src 'self' 'unsafe-inline'; script-src 'self'; connect-src 'self' https://nominatim.openstreetmap.org https://photon.komoot.io https://api.bigdatacloud.net https://ipapi.co https://ipwho.is; frame-ancestors *; base-uri 'self'"
+    />
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#0a0e1a" />
+    <title>Solar Time Widget</title>
+  </head>
+  <body style="background: transparent;">
+    <div id="embed-root"></div>
+    <script type="module" src="/src/embed.tsx"></script>
+  </body>
+</html>

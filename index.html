@@ -1,0 +1,58 @@
+<!doctype html>
+<!--
+  (C) Stefan Hodrius - Die Solar Timing App unterliegt der GPL GNU General Public License
+  und kann mit Namensnennung und unter Beibehaltung der Lizenzbedingungen frei weiterverwendet werden.
+-->
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <!--
+      Content-Security-Policy:
+      - Skripte/Styles nur aus sich selbst (Vite-injected, keine externen libs)
+      - Bilder: selbst + OSM/Leaflet-Tiles (Leaflet lädt zudem data:-Icons)
+      - connect-src: die genutzten Geocoding-/IP-APIs
+      - frame-ancestors 'self': Haupt-App darf nicht auf fremden Seiten
+        per iframe eingebettet werden (Clickjacking-Schutz).
+        Hinweis: frame-ancestors wird via <meta> nicht von allen Browsern
+        durchgesetzt – für Produktion zusätzlich als HTTP-Header senden.
+    -->
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; img-src 'self' data: https://tile.openstreetmap.org https://*.tile.openstreetmap.org https://*.basemaps.cartocdn.com https://a.basemaps.cartocdn.com https://b.basemaps.cartocdn.com https://c.basemaps.cartocdn.com https://d.basemaps.cartocdn.com; style-src 'self' 'unsafe-inline'; script-src 'self'; connect-src 'self' https://nominatim.openstreetmap.org https://photon.komoot.io https://api.bigdatacloud.net https://ipapi.co https://ipwho.is; frame-ancestors 'self'; base-uri 'self'; form-action 'self'"
+    />
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+    <link rel="manifest" href="./manifest.webmanifest" />
+    <link rel="apple-touch-icon" href="./icon-192.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#0a0e1a" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Solar Time" />
+    <meta
+      name="description"
+      content="Wahre Sonnenzeit, TCM-Organuhr, Solar Nutrition nach Adano Ley und Mondphase für Ihren Standort."
+    />
+    <title>Solar Time · Wahre Sonnenzeit, TCM Organuhr &amp; Solar Nutrition</title>
+
+    <!-- OpenGraph / Social Media Card Preview (https://solartiming.de) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://solartiming.de/" />
+    <meta property="og:title" content="Solar Time · Wahre Sonnenzeit, TCM Organuhr &amp; Solar Nutrition" />
+    <meta property="og:description" content="Entdecken Sie die wahre Sonnenzeit, die TCM Organuhr, Solar Nutrition nach Adano Ley und die Mondphase für Ihren exakten Standort." />
+    <meta property="og:image" content="https://solartiming.de/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="de_DE" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://solartiming.de/" />
+    <meta name="twitter:title" content="Solar Time · Wahre Sonnenzeit, TCM Organuhr &amp; Solar Nutrition" />
+    <meta name="twitter:description" content="Entdecken Sie die wahre Sonnenzeit, die TCM Organuhr, Solar Nutrition nach Adano Ley und die Mondphase für Ihren exakten Standort." />
+    <meta name="twitter:image" content="https://solartiming.de/og-image.png" />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
